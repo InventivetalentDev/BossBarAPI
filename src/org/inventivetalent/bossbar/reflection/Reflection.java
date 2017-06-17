@@ -9,12 +9,12 @@ public abstract class Reflection {
 
 	public static String getVersion() {
 		String name = Bukkit.getServer().getClass().getPackage().getName();
-		String version = name.substring(name.lastIndexOf('.') + 1) + ".";
+		String version = name.substring(name.lastIndexOf('.') + 1);
 		return version;
 	}
 
 	public static Class<?> getNMSClass(String className) {
-		String fullName = "net.minecraft.server." + getVersion() + className;
+		String fullName = "net.minecraft.server." + getVersion() + "." + className;
 		Class<?> clazz = null;
 		try {
 			clazz = Class.forName(fullName);
@@ -25,13 +25,13 @@ public abstract class Reflection {
 	}
 
 	public static Class<?> getNMSClassWithException(String className) throws Exception {
-		String fullName = "net.minecraft.server." + getVersion() + className;
+		String fullName = "net.minecraft.server." + getVersion() + "." + className;
 		Class<?> clazz = Class.forName(fullName);
 		return clazz;
 	}
 
 	public static Class<?> getOBCClass(String className) {
-		String fullName = "org.bukkit.craftbukkit." + getVersion() + className;
+		String fullName = "org.bukkit.craftbukkit." + getVersion() + "." + className;
 		Class<?> clazz = null;
 		try {
 			clazz = Class.forName(fullName);
