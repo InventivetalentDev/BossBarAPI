@@ -350,7 +350,11 @@ public class BossBarAPI implements API, Listener {
 	public static BossBar getBossBar(@Nonnull Player player) {
 		if (player == null) { return null; }
 		List<BossBar> list = ((List<BossBar>) barMap.get(player.getUniqueId()));
-		return list != null ? list.get(0) : null;
+
+		if (list != null && list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
 	}
 
 	/**
