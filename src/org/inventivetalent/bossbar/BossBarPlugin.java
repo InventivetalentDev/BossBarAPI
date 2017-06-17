@@ -6,7 +6,7 @@ import org.inventivetalent.apihelper.APIManager;
 
 public class BossBarPlugin extends JavaPlugin {
 
-	protected static Plugin instance;
+	protected static Plugin instance = JavaPlugin.getProvidingPlugin(BossBarPlugin.class);
 	BossBarAPI apiInstance = new BossBarAPI();
 
 	@Override
@@ -16,16 +16,6 @@ public class BossBarPlugin extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		instance = this;
-
-		try {
-			MetricsLite metrics = new MetricsLite(this);
-			if (metrics.start()) {
-				getLogger().info("Metrics started");
-			}
-		} catch (Exception e) {
-		}
-
 		APIManager.initAPI(BossBarAPI.class);
 	}
 
