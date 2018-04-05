@@ -33,6 +33,7 @@ public class EntityBossBar extends BukkitRunnable implements BossBar {
 	protected boolean visible = false;
 	protected Object dataWatcher;
 
+	@SuppressWarnings("deprecation")
 	protected EntityBossBar(Player player, String message, float percentage, int timeout, float minHealth) {
 		this.ID = new Random().nextInt();
 		this.uuid = UUID.randomUUID();
@@ -68,6 +69,7 @@ public class EntityBossBar extends BukkitRunnable implements BossBar {
 		return 300;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void setHealth(float percentage) {
 		this.health = percentage / 100F * this.getMaxHealth();
@@ -137,6 +139,7 @@ public class EntityBossBar extends BukkitRunnable implements BossBar {
 		return this.location;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void run() {
 		this.health -= this.healthMinus;
