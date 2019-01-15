@@ -17,8 +17,6 @@ import org.inventivetalent.apihelper.APIManager;
 import org.inventivetalent.bossbar.reflection.Reflection;
 import org.inventivetalent.reflection.minecraft.Minecraft;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.lang.reflect.Method;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -299,7 +297,7 @@ public class BossBarAPI implements API, Listener {
 	 * @return <code>true</code> if the player has a bar
 	 */
 	@Deprecated
-	public static boolean hasBar(@Nonnull Player player) {
+	public static boolean hasBar( Player player) {
 		return barMap.containsKey(player.getUniqueId());
 	}
 
@@ -309,7 +307,7 @@ public class BossBarAPI implements API, Listener {
 	 * @param player Player to remove
 	 */
 	@Deprecated
-	public static void removeBar(@Nonnull Player player) {
+	public static void removeBar( Player player) {
 		BossBar bar = getBossBar(player);
 		if (bar != null) { bar.setVisible(false); }
 		removeAllBars(player);
@@ -333,7 +331,7 @@ public class BossBarAPI implements API, Listener {
 	 * @return The health of the player's bar
 	 */
 	@Deprecated
-	public static float getHealth(@Nonnull Player player) {
+	public static float getHealth(Player player) {
 		BossBar bar = getBossBar(player);
 		if (bar == null) { return -1; }
 		return bar.getHealth();
@@ -345,9 +343,8 @@ public class BossBarAPI implements API, Listener {
 	 * @param player {@link Player}
 	 * @return a {@link EntityBossBar} instance if the player has a bar, <code>null</code> otherwise
 	 */
-	@Nullable
 	@Deprecated
-	public static BossBar getBossBar(@Nonnull Player player) {
+	public static BossBar getBossBar(Player player) {
 		if (player == null) { return null; }
 		List<BossBar> list = ((List<BossBar>) barMap.get(player.getUniqueId()));
 
