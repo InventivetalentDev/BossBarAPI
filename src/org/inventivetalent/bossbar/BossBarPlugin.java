@@ -18,14 +18,6 @@ public class BossBarPlugin extends JavaPlugin {
 	public void onEnable() {
 		instance = this;
 
-		try {
-			MetricsLite metrics = new MetricsLite(this);
-			if (metrics.start()) {
-				getLogger().info("Metrics started");
-			}
-		} catch (Exception e) {
-		}
-
 		APIManager.initAPI(BossBarAPI.class);
 	}
 
