@@ -466,6 +466,7 @@ public class BossBarAPI implements API, Listener {
 			if (bar != null) {
 				new BukkitRunnable() {
 
+					@SuppressWarnings("deprecation")
 					@Override
 					public void run() {
 						if (!e.getPlayer().isOnline()) { return; }
