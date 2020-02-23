@@ -9,7 +9,7 @@ public abstract class Reflection {
 
 	public static String getVersion() {
 		String name = Bukkit.getServer().getClass().getPackage().getName();
-		String version = name.substring(name.lastIndexOf('.') + 1) + ".";
+		String version = name.substring(name.lastIndexOf('.') + 1);
 		return version;
 	}
 
